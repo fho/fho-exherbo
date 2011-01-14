@@ -1,3 +1,7 @@
+# Copyright 2011 <Fabian Holler>
+# Distributed under the terms of the GNU General Public License v2
+
+
 require cmake googlecode [ suffix=tar.gz project=clementine-player ]
 
 SUMMARY="A modern music player and library organizer based on Amarok 1.4 and Qt4"
@@ -21,13 +25,15 @@ DEPENDENCIES="
         dev-libs/boost
         dev-util/pkg-config
     build+run:
-        mtp? ( media-libs/libmtp )
-        ipod? ( media-libs/libgpod )
         xine? ( media-libs/xine-lib )
         vlc? ( media/vlc )
         phonon? ( media-libs/phonon )
+        gstreamer? (
+            media-libs/gstreamer
+        )
+        mtp? ( media-libs/libmtp )
+        ipod? ( media-libs/libgpod )
         imobile? ( app-pda/libimobiledevice )
-        gstreamer? ( media-libs/gstreamer )
         dev-libs/glib:2
         media-libs/liblastfm
         media-libs/taglib
