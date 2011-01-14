@@ -1,0 +1,51 @@
+require cmake googlecode [ suffix=tar.gz project=clementine-player ]
+
+SUMMARY="A modern music player and library organizer based on Amarok 1.4 and Qt4"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="mtp [[ description = [ support for MTP devices ] ]]
+           ipod [[ description = [ support for IPOD Classic devices ] ]]
+           wiimote [[ description = [ support for WII-Remote ] ]]
+           vlc [[ description = [ vlc backend support  ] ]]
+           xine [[ description = [ xine backend support  ] ]]
+           gstreamer [[ description = [ gstreamer backend support  ] ]]
+           phonon [[ description = [ phonon backend support  ] ]]
+           imobile [[ description = [ support for ipod Touch iPad, iPhone devices ] ]]
+           visualisations [[ description = [ libprojectm visualisations ] ]]"
+
+
+DEPENDENCIES="
+    build:
+        dev-libs/boost
+        dev-util/pkg-config
+    build+run:
+        mtp? ( media-libs/libmtp )
+        ipod? ( media-libs/libgpod )
+        xine? ( media-libs/xine-lib )
+        vlc? ( media/vlc )
+        phonon? ( media-libs/phonon )
+        imobile? ( app-pda/libimobiledevice )
+        gstreamer? ( media-libs/gstreamer )
+        dev-libs/glib:2
+        media-libs/liblastfm
+        media-libs/taglib
+        x11-libs/libnotify
+        x11-libs/qt[X][opengl][sqlite]
+"
+
+CMAKE_SRC_CONFIGURE_OPTION_WITHS+=(
+    'mtp LIBMTP'
+    'ipod LIBGPOD'
+    'visualisations VISUALISATIONS'
+    'wiimote WIIMOTEDEV'
+    'vlc LIBVLC'
+    'xine LIBXINE'
+    'gstreamer GSTREAMER'
+    'phonon QTPHONON'
+    'imobile IMOBILEDEVICE'
+
+)
+
+
