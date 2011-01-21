@@ -4,7 +4,7 @@
 
 SUMMARY="very capable console calculator with intuitive expressions"
 HOMEPAGE="http://w-calc.sourceforge.net"
-LICENCES=""
+LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
