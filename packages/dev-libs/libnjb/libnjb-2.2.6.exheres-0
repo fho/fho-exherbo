@@ -1,0 +1,12 @@
+# Copyright 2011 <Fabian Holler>
+# Distributed under the terms of the GNU General Public License v2
+
+
+SUMMARY="a C library and API for communicating with the Creative Nomad JukeBox and Dell DJ digitalaudio players"
+HOMEPAGE="http://libnjb.sourceforge.net/"
+LICENCES="BSD"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+
+require sourceforge [ project="libnjb" suffix="tar.gz" ]
