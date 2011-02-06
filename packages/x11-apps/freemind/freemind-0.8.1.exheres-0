@@ -6,8 +6,16 @@ SUMMARY="java mindmap tool"
 LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64"
-"
 
+
+DEPENDENCIES="
+    build:
+        dev-java/jaxb
+"
+#ToDo jax-qname fehlt noch
+#/usr/share/jaxb/jaxb-impl.jar:/usr/share/jaxb/jaxb-api.jar:/usr/share/jaxb/jaxb1-impl.jar:/opt/freemind/freemind.jar:/usr/share/jaxb/jaxb-xjc.jar:/home/fho/Downloads//freemind/lib/ant/lib/jax-qname.jar
+#zum jar hinzufügen
+##qname ist wahrscheinlich in jwsdp enthalten
 ANT_SRC_COMPILE_PARAMS=( build )
 ANT_SRC_INSTALL_PARAMS=( jar )
 
@@ -28,6 +36,8 @@ src_install()
     dodir /opt/${PN}
     insinto /opt/${PN}
     doins "${WORK}/../bin/dist/lib/${PN}.jar"
+    doins "${WORK}/patterns.xml"
+    doins "${WORK}/user.properties.xml"
 
     herebin freemind <<EOF
 #!/bin/sh
