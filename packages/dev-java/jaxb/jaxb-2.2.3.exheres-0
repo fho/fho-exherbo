@@ -3,7 +3,7 @@
 
 require ant java
 
-SUMMARY=""
+SUMMARY="java Architecture for XML Binding, framework for processing XML documents"
 DOWNLOADS="http://jaxb.java.net/2.2.3u1/jaxb-ri-2_2_3u1.src.zip"
 
 SLOT="0"
