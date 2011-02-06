@@ -1,0 +1,14 @@
+--- build.xml	2008-01-02 22:51:36.000000000 +0000
++++ mod-build.xml	2011-02-06 18:02:04.590544999 +0000
+@@ -16,11 +16,7 @@
+ 	<property name="java_target_version" value="1.2" />
+ 	<property name="build.compiler" value="modern" />
+ 	<property name="ant.dir" value="lib/ant/lib"/>
+-	<property name="jarbundler.jar" value = "jarbundler-1.4.jar"/>
+ 
+-    <taskdef name="jarbundler"
+-               classpath="${src}/lib/${jarbundler.jar}"
+-               classname="com.loomcom.ant.tasks.jarbundler.JarBundler" />
+ 
+ 
+ 	
