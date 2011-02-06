@@ -6,9 +6,6 @@ SUMMARY="java mindmap tool"
 LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64"
-DEPENDENCIES="
-    run:
-        virtual/jre
 "
 
 ANT_SRC_COMPILE_PARAMS=( build )
