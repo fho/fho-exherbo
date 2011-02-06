@@ -21,9 +21,10 @@ src_install() {
 
     dodir /usr/share/${PN}
     insinto /usr/share/${PN}
-    doins "${WORK}/dist/lib/jaxb-api.jar"
-    doins "${WORK}/dist/lib/jaxb-impl.jar"
-    doins "${WORK}/dist/lib/jaxb1-impl.jar"
-    doins "${WORK}/dist/lib/jaxb-xjc.jar"
+    #doins "${WORK}/dist/lib/jaxb-api.jar"
+    #doins "${WORK}/dist/lib/jaxb-impl.jar"
+    #doins "${WORK}/dist/lib/jaxb1-impl.jar"
+    #doins "${WORK}/dist/lib/jaxb-xjc.jar"
+    doins "${WORK}/dist/lib/"*.jar
 }
 
