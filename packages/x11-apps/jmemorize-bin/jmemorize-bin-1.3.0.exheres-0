@@ -1,0 +1,32 @@
+# Copyright 2011 Fabian Holler
+# Distributed under the terms of the GNU General Public License v2
+require sourceforge [ pn="jMemorize" project="jmemorize" suffix="jar" ]
+
+SUMMARY="learning tool using Leitner flashcards"
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+DEPENDENCIES="
+    run:
+        virtual/jre
+"
+
+WORK=${WORKBASE}
+default_src_unpack()
+{
+    :
+}
+
+
+src_install()
+{
+    dodir "/opt/jmemorize"
+    insinto "/opt/jmemorize"
+    doins "${FETCHEDDIR}"/jMemorize-${PV}.jar
+
+    herebin jmemorize <<EOF
+#!/bin/sh
+java -jar /opt/${PN}/jMemorize-${PV}.jar
+EOF
+}
+
