@@ -1,0 +1,29 @@
+# Copyright 2011 Fabian Holler
+# Distributed under the terms of the GNU General Public License v2
+
+require ant java
+
+SUMMARY=""
+DOWNLOADS="http://jaxb.java.net/2.2.3u1/jaxb-ri-2_2_3u1.src.zip"
+
+SLOT="0"
+PLATFORMS="~amd64"
+
+ANT_SRC_PREPARE_PARAMS=( compile )
+ANT_SRC_INSTALL_PARAMS=( dist )
+
+WORK=${WORKBASE}/jaxb-ri
+src_prepare(){
+    ant_src_prepare
+}
+src_install() {
+    ant_src_install
+
+    dodir /usr/share/${PN}
+    insinto /usr/share/${PN}
+    doins "${WORK}/dist/lib/jaxb-api.jar"
+    doins "${WORK}/dist/lib/jaxb-impl.jar"
+    doins "${WORK}/dist/lib/jaxb1-impl.jar"
+    doins "${WORK}/dist/lib/jaxb-xjc.jar"
+}
+
