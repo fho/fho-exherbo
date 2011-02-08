@@ -1,0 +1,27 @@
+# Copyright 2011 Fabian Holler
+# Distributed under the terms of the GNU General Public License v2
+require sourceforge [ pnv="freemind-bin-max-0_8_1" pn="freemind" project="freemind" suffix="zip" ]
+
+SUMMARY="java Mind-mapping tool"
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+DEPENDENCIES="
+    run:
+        virtual/jre
+"
+
+WORK=${WORKBASE}
+default_src_unpack()
+{
+    :
+}
+
+
+src_install()
+{
+    dodir "/opt/jmemorize"
+    insinto "/opt/jmemorize"
+    doins "${FETCHEDDIR}"/jMemorize-${PV}.jar
+}
+
