@@ -1,0 +1,22 @@
+# Copyright 2011 Fabian Holler <exherbo@fholler.de>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="MTPfs is a FUSE filesystem that supports reading and writing from any MTP device "
+HOMEPAGE="http://www.adebenham.com/mtpfs/"
+DOWNLOADS="http://www.adebenham.com/debian/mtpfs_0.9.orig.tar.gz"
+
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+
+WORK="${WORKBASE}/${PNV}.orig"
+DEPENDENCIES="
+    build+run:
+        media-libs/libmtp[>=0.0.9]
+        dev-libs/glib:2
+        sys-fs/fuse[>=2.2.0]
+        media-libs/libmad[>=0.15]
+        media-libs/libid3tag[>=0.15]
+"
+
+PLATFORMS="~amd64"

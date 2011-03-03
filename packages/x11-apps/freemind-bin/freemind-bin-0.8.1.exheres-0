@@ -20,8 +20,8 @@ default_src_unpack()
 
 src_install()
 {
-    dodir "/opt/jmemorize"
-    insinto "/opt/jmemorize"
-    doins "${FETCHEDDIR}"/jMemorize-${PV}.jar
+    dodir "/opt/freemind"
+    insinto "/opt/freemind"
+    doins -r "${FETCHEDDIR}"/*
 }
 
