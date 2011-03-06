@@ -1,0 +1,42 @@
+# Copyright 2011 Fabian Holler
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="picasa"
+#DOWNLOADS="http://dl.google.com/linux/rpm/stable/i386/picasa-2.7.3736-15.i386.rpm"
+DOWNLOADS="http://dl.google.com/linux/deb/pool/non-free/p/picasa/picasa_2.7.3736-15_amd64.deb"
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    build:
+        app-arch/rpm2targz
+"
+src_unpack(){
+    #edo rpm2tar "${FETCHEDDIR}/picasa-2.7.3736-15.i386.rpm"
+    #edo tar xpf "${WORKBASE}/picasa-2.7.3736-15.i386.tar"
+    default
+    unpack "./data.tar.gz"
+    rm -f {control,data}.tar.gz debian-binary
+}
+
+WORK="$WORKBASE"
+
+#src_prepare(){
+#    :
+#}
+
+src_install(){
+    for i in ${WORK}/opt/picasa/{bin,wine/bin}/* ; do
+        edo chmod 0755 ${i}
+    done
+    dodir "/opt/picasa"
+    insinto "/opt/picasa"
+    doins -r "${WORK}/opt/picasa/"{bin,wine}
+    dodir "/usr/bin/"
+    for i in picasa picasafontcfg mediadetector showpicasascreensaver; do
+        dosym /opt/picasa/bin/${i} /usr/bin/${i}
+    done
+
+    dodoc "${WORK}/opt/picasa/"{README,LICENSE.FOSS}
+}

@@ -11,6 +11,8 @@ MYOPTIONS=""
 
 WORK="${WORKBASE}/${PNV}.orig"
 DEPENDENCIES="
+    build:
+        dev-util/pkg-config
     build+run:
         media-libs/libmtp[>=0.0.9]
         dev-libs/glib:2
