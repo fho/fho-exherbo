@@ -27,15 +27,15 @@ WORK="$WORKBASE"
 #}
 
 src_install(){
-    for i in ${WORK}/opt/picasa/{bin,wine/bin}/* ; do
-        edo chmod 0755 ${i}
-    done
     dodir "/opt/picasa"
     insinto "/opt/picasa"
     doins -r "${WORK}/opt/picasa/"{bin,wine}
     dodir "/usr/bin/"
     for i in picasa picasafontcfg mediadetector showpicasascreensaver; do
         dosym /opt/picasa/bin/${i} /usr/bin/${i}
+    done
+    for i in /opt/picasa/{bin,wine/bin}/* ; do
+        edo chmod 0755 ${i}
     done
 
     dodoc "${WORK}/opt/picasa/"{README,LICENSE.FOSS}
