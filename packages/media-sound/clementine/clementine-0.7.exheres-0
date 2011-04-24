@@ -44,6 +44,7 @@ DEPENDENCIES="
 
     run:
         media-plugins/gst-plugins-good
+        media-plugins/gst-plugins-bad[gstreamer_plugins:ofa] [[ description = [ id3-tag completion with musicbrainz ] ]]
     suggestion:
         media-plugins/gst-plugins-ugly[gstreamer_plugins:lame] [[ description = [ decode mp3s with gstreamer ] ]]
 "
